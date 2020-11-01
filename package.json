@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "random": "^2.2.0",
+    "randomcolor": "^0.6.2"
+  },
   "devDependencies": {
+    "@types/random": "^2.1.1",
+    "@types/randomcolor": "^0.5.5",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.1",
