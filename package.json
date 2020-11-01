@@ -22,7 +22,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server --host 0.0.0.0"
   },
   "author": "",
   "license": "ISC"

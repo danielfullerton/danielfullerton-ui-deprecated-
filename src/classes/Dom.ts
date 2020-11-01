@@ -9,29 +9,36 @@ export class Dom {
     this.context = canvas.getContext('2d');
   }
 
-  reset(canvas: HTMLCanvasElement, width: number, height: number) {
-    this.canvas = canvas;
-    this.context = canvas.getContext('2d');
-    this.init(width, height);
+  getRandomBall(x?: number, y?: number) {
+    return Ball.random(
+      this.canvas.width / 50,
+      this.canvas.width / 30,
+      x ||0,
+      x || this.canvas.width,
+      y || this.canvas.height / 8,
+      y || this.canvas.height / 1.2,
+      1,
+      this.canvas.height / 200
+    )
   }
 
   init(windowWidth: number, windowHeight: number) {
     this.setCanvasSize(windowWidth, windowHeight);
-    this.balls = [];
-    for (let i = 0; i < 50; i++) {
-      this.addBall(Ball.random(
-        this.canvas.width / 50,
-        this.canvas.width / 30,
-        this.canvas.width / 8,
-        this.canvas.width / 1.2,
-        this.canvas.height / 8,
-        this.canvas.height / 1.2,
-        1,
-        this.canvas.height / 100
-      ));
+    for (let i = 0; i < 10; i++) {
+      this.addBall(this.getRandomBall());
     }
     this.drawBalls();
     this.animate();
+
+    this.canvas.onclick = (event) => this.onCanvasClicked(event);
+  }
+
+  onCanvasClicked(event: MouseEvent) {
+    const { x, y } = event;
+    if (this.balls.length > 100) {
+      this.balls.splice(0, 1);
+    }
+    this.addBall(this.getRandomBall(x, y))
   }
 
   addBall(ball: Ball) {

@@ -1,6 +1,5 @@
 import { Direction, randomDirection } from '../enums/Direction';
-import { int, float } from 'random';
-import randomColor from 'randomcolor';
+import { float, int } from 'random';
 
 export class Ball {
   constructor(
@@ -10,20 +9,21 @@ export class Ball {
     public color: string,
     public dirX: Direction,
     public dirY: Direction,
-    public velocity: number
+    public velX: number,
+    public velY: number
   ) {}
 
   move() {
     if (this.dirX === Direction.LEFT) {
-      this.posX -= this.velocity;
+      this.posX -= this.velX;
     } else {
-      this.posX += this.velocity;
+      this.posX += this.velX;
     }
 
     if (this.dirY === Direction.UP) {
-      this.posY -= this.velocity;
+      this.posY -= this.velY;
     } else {
-      this.posY += this.velocity;
+      this.posY += this.velY;
     }
   }
 
@@ -40,8 +40,9 @@ export class Ball {
     const rad = int(Math.floor(minRadius), Math.floor(maxRadius));
     const x = int(Math.floor(minX), Math.floor(maxX));
     const y = int(Math.floor(minY), Math.floor(maxY));
-    const vel = float(Math.floor(minVel), Math.floor(maxVel));
-    const color = randomColor({ luminosity: 'bright', alpha: 0.5, format: 'rgba' });
+    const velX = float(Math.floor(minVel), Math.floor(maxVel));
+    const velY = float(Math.floor(minVel), Math.floor(maxVel));
+    const color = '#88888811'; // randomColor({ alpha: 0.03, format: 'rgba', hue: 1 });
     return new Ball(
       rad,
       x,
@@ -49,7 +50,8 @@ export class Ball {
       color,
       randomDirection(),
       randomDirection(),
-      vel
+      velX,
+      velY
     );
   }
 }
