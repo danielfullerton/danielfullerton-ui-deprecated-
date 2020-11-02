@@ -12,7 +12,7 @@ export class Dom {
   getRandomBall(x?: number, y?: number) {
     return Ball.random(
       this.canvas.width / 50,
-      this.canvas.width / 30,
+      this.canvas.width / 15,
       x ||0,
       x || this.canvas.width,
       y || this.canvas.height / 8,
@@ -24,18 +24,16 @@ export class Dom {
 
   init(windowWidth: number, windowHeight: number) {
     this.setCanvasSize(windowWidth, windowHeight);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 50; i++) {
       this.addBall(this.getRandomBall());
     }
     this.drawBalls();
     this.animate();
-
-    this.canvas.onclick = (event) => this.onCanvasClicked(event);
   }
 
   onCanvasClicked(event: MouseEvent) {
     const { x, y } = event;
-    if (this.balls.length > 100) {
+    if (this.balls.length > 250) {
       this.balls.splice(0, 1);
     }
     this.addBall(this.getRandomBall(x, y))

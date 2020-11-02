@@ -1,5 +1,6 @@
 import { Direction, randomDirection } from '../enums/Direction';
 import { float, int } from 'random';
+import randomColor from 'randomcolor';
 
 export class Ball {
   constructor(
@@ -42,7 +43,7 @@ export class Ball {
     const y = int(Math.floor(minY), Math.floor(maxY));
     const velX = float(Math.floor(minVel), Math.floor(maxVel));
     const velY = float(Math.floor(minVel), Math.floor(maxVel));
-    const color = '#88888811'; // randomColor({ alpha: 0.03, format: 'rgba', hue: 1 });
+    const color = randomColor({ alpha: 0.05, format: 'rgba' });
     return new Ball(
       rad,
       x,

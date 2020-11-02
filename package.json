@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "random": "^2.2.0",
     "randomcolor": "^0.6.2"
   },

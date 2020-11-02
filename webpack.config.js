@@ -27,7 +27,7 @@ module.exports = {
       {
         test:/\.(s*)css$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        exclude: /node_modules/
+        include: /(node_modules\/@fortawesome\/.*)|(src\/style\.scss)/
       }
     ],
   },
