@@ -1,6 +1,7 @@
 import './style.scss'
 import '../node_modules/@fortawesome/fontawesome-free/js/all.min';
 import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
 import { Dom } from './classes/Dom';
 
 let canvas: HTMLCanvasElement;

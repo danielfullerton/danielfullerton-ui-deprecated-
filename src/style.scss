@@ -59,9 +59,6 @@ a {
   align-items: center;
 
   @media (min-width: $breakWidth) {
-    padding-top: 0;
-    padding-bottom: 0;
-    flex-direction: column;
     height: 100vh;
     justify-content: space-between;
   }
@@ -74,9 +71,11 @@ a {
     .text-container {
       width: 80%;
       margin: 0 auto;
+      padding-top: 50px;
 
       @media (min-width: $breakWidth) {
         width: 50%;
+        padding-top: 0;
       }
 
       .img-container-mobile {
